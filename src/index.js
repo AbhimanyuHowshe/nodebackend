@@ -8,7 +8,20 @@ dotenv.config({
 
 
 
-connectDB();
+connectDB()
+.then(()=>{
+  app.on("Error",(error)=>{
+    console.log("The following error occured",error);
+    throw error;
+  })
+  app.listen(process.env.PORT  || 8000,()=>{
+    console.log("App is running on port", `${process.env.PORT}`)
+  })
+})
+.catch((error)=>{
+  console.log("connectio,n has failed to database", error);
+}
+);
 
 /*import express from "express";
 
