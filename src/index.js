@@ -1,5 +1,7 @@
 //require ('dotenv').config({path:"./env"});
 import dotenv from 'dotenv';
+import {app} from './app.js'
+
 
 import connectDB from './db/index.js';
 dotenv.config({
@@ -19,7 +21,7 @@ connectDB()
   })
 })
 .catch((error)=>{
-  console.log("connectio,n has failed to database", error);
+  console.log("connection has failed to database", error);
 }
 );
 
